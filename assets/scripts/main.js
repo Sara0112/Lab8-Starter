@@ -81,8 +81,9 @@ async function getRecipes() {
   // A1. TODO - Check local storage to see if there are any recipes.
   //            If there are recipes, return them.
   /**************************/
-  if (localStorage.getItem('recipes') != null) {
-    return JSON.parse(localStorage.getItem('recipes'));
+  let recipes = localStorage.getItem('recipes')
+  if (recipes != null) {
+    return JSON.parse(recipes);
   }
   // The rest of this method will be concerned with requesting the recipes
   // from the network
@@ -115,8 +116,7 @@ async function getRecipes() {
   //            resolve() method.
   // A10. TODO - Log any errors from catch using console.error
   // A11. TODO - Pass any errors to the Promise's reject() function
-
-  let recipes = [];
+  recipes = [];
   return new Promise(async (resolve, reject) => {
     for (const url of RECIPE_URLS) {
       try {
