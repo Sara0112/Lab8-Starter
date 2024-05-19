@@ -118,9 +118,9 @@ async function getRecipes() {
   // A11. TODO - Pass any errors to the Promise's reject() function
   recipes = [];
   return new Promise(async (resolve, reject) => {
-    for (const url of RECIPE_URLS) {
+    for (const recipe_url of RECIPE_URLS) {
       try {
-        let recipe = await fetch(url);
+        let recipe = await fetch(recipe_url);
         let json = await recipe.json();
         recipes.push(json);
         if (recipes.length == RECIPE_URLS.length) {
