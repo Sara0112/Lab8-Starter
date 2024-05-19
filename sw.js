@@ -44,11 +44,11 @@ self.addEventListener('fetch', function (event) {
   // B8. TODO - If the request is in the cache, return with the cached version.
   //            Otherwise fetch the resource, add it to the cache, and return
   //            network response.
-  event.respondWith(caches.open(CACHE_NAME).then((ca) => {
-    return ca.match(event.request).then((caResponse) => {
-      return caResponse || fetch(event.request).then((feResponse) => {
-        ca.put(event.request, feResponse.clone());
-        return feResponse;
+  event.respondWith(caches.open(CACHE_NAME).then((cache) => {
+    return cache.match(event.request).then((cachedResponse) => {
+      return cachedResponse || fetch(event.request).then((fetchedResponse) => {
+        cache.put(event.request, fetchedResponse.clone());
+        return fetchedResponse;
       });
     });
   }));
