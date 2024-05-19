@@ -4,7 +4,7 @@
     "description": "Recipes",
     "start_url": "https://sara0112.github.io/Lab8-Starter/",
     "display": "standalone",
-    "background_color": "white",
+    "background_color": "black",
     "theme_color": "black",
     "icons": [
       {
